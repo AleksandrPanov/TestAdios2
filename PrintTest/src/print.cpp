@@ -1,4 +1,5 @@
 #include "print.h"
+#include <experimental/filesystem>
 
 int main()
 {
@@ -6,12 +7,14 @@ int main()
     std::vector<double> myDouble(Nx);
     std::iota(myDouble.begin(), myDouble.end(), 0.0);
     const int numIt = 5 * 10;
+    bool createNewFile = true;
 
-    Runner r;
-    r.timing("ADIOS2", myDouble, numIt, false);
-    //r.timing("ADIOS2_HI_API", myDouble, numIt, false);
-    //r.timing("OFSTREAM", myDouble, numIt, false);
-    //r.timing("FWRITE", myDouble, numIt, false);
+    Runner r(myDouble, numIt, createNewFile);
+    //r.run("ADIOS2");
+    
+    //r.run("ADIOS2_HI_API");
+    r.run("OFSTREAM");
+    r.run("FWRITE");
     r.print();
     return 0;
 }
