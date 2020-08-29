@@ -1,12 +1,11 @@
+#include <map>
 #include <vector>
 #include <string>
-#include <map>
 #include <iostream>
 #include <numeric>
 #include <ctime>
 
 #include <fstream>
-#include <stdio.h>
 #include <adios2.h>
 #include <direct.h>
 
@@ -27,7 +26,7 @@ struct Runner
         deleteFolder();
         //std::cin.ignore();
     }
-    void print()
+    void printTimes()
     {
         for (auto tmp : times)
             std::cout << tmp.first << " " << tmp.second << " milliseconds\n";

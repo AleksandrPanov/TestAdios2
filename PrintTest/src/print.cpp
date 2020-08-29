@@ -1,5 +1,4 @@
 #include "print.h"
-#include <experimental/filesystem>
 
 int main()
 {
@@ -11,10 +10,9 @@ int main()
 
     Runner r(myDouble, numIt, createNewFile);
     //r.run("ADIOS2");
-    
     //r.run("ADIOS2_HI_API");
     r.run("OFSTREAM");
     r.run("FWRITE");
-    r.print();
+    r.printTimes();
     return 0;
 }
